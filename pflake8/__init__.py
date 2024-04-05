@@ -44,10 +44,6 @@ class ConfigParserTomlMixin:
             return super()._convert_to_boolean(value)
 
 
-class DivertingRawConfigParser(ConfigParserTomlMixin, configparser.RawConfigParser):
-    pass
-
-
 class DivertingConfigParser(ConfigParserTomlMixin, configparser.ConfigParser):
     pass
 
@@ -56,7 +52,6 @@ class DivertingSafeConfigParser(ConfigParserTomlMixin, configparser.SafeConfigPa
     pass
 
 
-configparser.RawConfigParser = DivertingRawConfigParser
 configparser.ConfigParser = DivertingConfigParser
 configparser.SafeConfigParser = DivertingSafeConfigParser
 
